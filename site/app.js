@@ -26,7 +26,7 @@ fetch('data/roadnetwork_clipped_pedestrian_default.geojson')
         // Add the street network to the map
         L.geoJSON(roads, {
             style: {
-                color: '#77b8daff',
+                color: '#FFFFFF',
                 weight: 3,
                 opacity: 0.9
             }
