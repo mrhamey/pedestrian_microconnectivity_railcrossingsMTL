@@ -9,16 +9,16 @@
   margin: 0; /* optional to remove default margin */
 }
 
-.legend li span.dot-red {
-  color: red;
+.legend li span.dot-lightgreen {
+  color: #82ee71ff;
 }
 
 .legend li span.dot-yellow {
-  color: yellow;
+  color: #f7f793;
 }
 
 .legend li span.dot-green {
-  color: green;
+  color: #62b955ff;
 }
 
 /* Line style base */
@@ -32,14 +32,23 @@
 .legend li span.street-path {
   width: 20px;
   height: 4px;
-  background-color: blue;
+  background-color: #77b8daff;
   opacity: 0.5;
 }
+
 /* Orange inner walkshed line */
 .legend li span.innerwalkshed {
   width: 20px;
   height: 4px;
-  background-color: orange;
+  background-color: #f05f5fff;
+  opacity: 1;
+}
+
+/* Light outer walkshed line */
+.legend li span.outerwalkshed {
+  width: 20px;
+  height: 4px;
+  background-color: #ec9696ff;
   opacity: 1;
 }
 
@@ -240,4 +249,5 @@ body {
   width: 65%;
   min-width: 300px;
 }
+
 
