@@ -35,6 +35,13 @@
   background-color: blue;
   opacity: 0.5;
 }
+/* Orange inner walkshed line */
+.legend li span.innerwalkshed {
+  width: 20px;
+  height: 4px;
+  background-color: orange;
+  opacity: 1;
+}
 
 /* Grey/white striped rail line */
 .legend li span.rail-line {
