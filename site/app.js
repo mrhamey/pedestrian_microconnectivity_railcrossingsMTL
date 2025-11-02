@@ -16,7 +16,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 20
 let streetsData = null;
 
 // --- Load the road network GeoJSON ---
-fetch('../data/roadnetwork_clipped_pedestrian_default.geojson')
+fetch('data/roadnetwork_clipped_pedestrian_default.geojson')
     // this is a roadnetwork file that has been clipped to save resources and 
     // to focus on the study area. Tool used : https://mapshaper.org to save as csv, then https://geojson.io to convert csv to geojson
     .then(r => r.json())
@@ -36,7 +36,7 @@ fetch('../data/roadnetwork_clipped_pedestrian_default.geojson')
 
 
 // --- Load the crossings (points) GeoJSON ---
-fetch('../data/places.geojson')
+fetch('data/places.geojson')
     .then(r => r.json())
     .then(crossings => {
         // Add the crossing points directly
@@ -89,7 +89,7 @@ let reachableLayer400 = null;
 let reachableLayer800 = null;
 
 // Load 400m file
-fetch('../data/reachable_lines_400m.geojson')
+fetch('data/reachable_lines_400m.geojson')
     .then(r => r.json())
     .then(data => {
         reachable400 = data;
@@ -97,7 +97,7 @@ fetch('../data/reachable_lines_400m.geojson')
     });
 
 // Load 800m file
-fetch('../data/reachable_lines_800m.geojson')
+fetch('data/reachable_lines_800m.geojson')
     .then(r => r.json())
     .then(data => {
         reachable800 = data;
@@ -105,7 +105,7 @@ fetch('../data/reachable_lines_800m.geojson')
     });
 
 // --- Click interaction on crossings (same as your code, modified slightly) ---
-fetch('../data/places.geojson')
+fetch('data/places.geojson')
     .then(r => r.json())
     .then(crossings => {
         L.geoJSON(crossings, {
