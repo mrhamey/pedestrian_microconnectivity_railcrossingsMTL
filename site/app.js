@@ -83,23 +83,36 @@ fetch('data/places.geojson')
     })
     .catch(err => console.error("❌ Error loading crossings GeoJSON:", err));
 
-// -- Loading the Reseau Vert line --
+// --- Load Réseau Vert file once (alternating green/white dashed line) ---
 let reseauVertData = null;
-let reseauVertLayer = null;
+let reseauVertGreenLayer = null;
+let reseauVertWhiteLayer = null;
 
 fetch('data/reseauvert.geojson')
   .then(response => response.json())
   .then(data => {
     reseauVertData = data;
-    reseauVertLayer = L.geoJSON(reseauVertData, {
+
+    // Green dashes (first layer)
+    reseauVertGreenLayer = L.geoJSON(reseauVertData, {
       style: {
         color: "green",
-        weight: 3,
-        dashArray: "5,5",
-        dashOffset: "0"
+        weight: 4,
+        dashArray: "5,5"   // 
       }
     }).addTo(map);
-  });
+
+    // White dashes (second layer, shifted to fill the gaps)
+    reseauVertWhiteLayer = L.geoJSON(reseauVertData, {
+      style: {
+        color: "white",
+        weight: 4,
+        dashArray: "5,5",
+        dashOffset: "5"     
+      }
+    }).addTo(map);
+  })
+  .catch(err => console.error("❌ Error loading Réseau Vert:", err));
 
 // --- Load reachable lines for 400m + 800m ---
 let reachable400 = null;
@@ -173,7 +186,7 @@ fetch('data/places.geojson')
                         features: reachable800.features.filter(f => f.properties.crossing_name === name)
                     };
 
-                    // Add 800m first (light orange)
+                    // Add 800m first (pink)
                     reachableLayer800 = L.geoJSON(filtered800, {
                         style: {
                             color: '#ec9696ff',     // light pink
@@ -191,17 +204,30 @@ fetch('data/places.geojson')
                         }
                     }).addTo(map);
 
-                    // Re-add the Réseau Vert on top (if it's not already present)
-                    if (reseauVertLayer) {
-                    map.removeLayer(reseauVertLayer);
-                    }
-                    reseauVertLayer = L.geoJSON(reseauVertData, {
+                    // --- Re-add the Réseau Vert so it stays visible above the walksheds ---
+
+                    // First remove previous layers to prevent duplicates
+                    if (reseauVertGreenLayer) map.removeLayer(reseauVertGreenLayer);
+                    if (reseauVertWhiteLayer) map.removeLayer(reseauVertWhiteLayer);
+
+                    // Add green dashed layer again
+                    reseauVertGreenLayer = L.geoJSON(reseauVertData, {
                         style: {
                             color: "green",
-                            weight: 3,
-                            opacity: 1.0
+                            weight: 4,
+                            dashArray: "5,5"
                         }
                     }).addTo(map);
+
+                    // Add white dashed layer slightly shifted
+                    reseauVertWhiteLayer = L.geoJSON(reseauVertData, {
+                        style: {
+                            color: "white",
+                            weight: 4,
+                            dashArray: "5,5",
+                            dashOffset: "5"
+                        }
+                        }).addTo(map);
                  
 
                     // Fit to the larger (800m) extent if available
