@@ -199,8 +199,7 @@ fetch('data/places.geojson')
                         style: {
                             color: "green",
                             weight: 3,
-                            dashArray: "5,5",
-                            dashOffset: "0"
+                            opacity: 1.0
                         }
                     }).addTo(map);
                  
