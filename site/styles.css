@@ -64,6 +64,24 @@
     white 8px
   );
 }
+/* Reseau/vert striped line*/
+.legend li span.reseau-vert {
+  width: 30px;
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    to right
+    green 0px,
+    white 5px,
+    green 5px,
+    white 10px
+    );
+}
+    
+    
+
+
+
+
 
 /* WEB LAYOUT / MAP STYLING */ 
 /* Reset and box-sizing */
