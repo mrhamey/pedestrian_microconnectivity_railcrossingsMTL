@@ -82,6 +82,20 @@ fetch('data/places.geojson')
         }).addTo(map);
     })
     .catch(err => console.error("❌ Error loading crossings GeoJSON:", err));
+
+// -- Loading the Reseau Vert line --
+fetch('data/reseauvert.geojson')
+  .then(response => response.json())
+  .then(data => {
+    reseauVertLayer = L.geoJSON(data, {
+      style: {
+        color: "green",      // Main line color
+        weight: 3,
+        dashArray: "5,5",    // Makes it dashed
+        dashOffset: "0"
+      }
+    }).addTo(map);
+  });
 // --- Load reachable lines for 400m + 800m ---
 let reachable400 = null;
 let reachable800 = null;
