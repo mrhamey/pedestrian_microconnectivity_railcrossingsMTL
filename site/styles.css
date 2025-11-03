@@ -28,11 +28,11 @@
   margin-right: 5px;
 }
 
-/* Blue semi-transparent line */
+/* white semi-transparent line */
 .legend li span.street-path {
   width: 20px;
   height: 4px;
-  background-color: #77b8daff;
+  background-color: #ffffff;
   opacity: 0.5;
 }
 
