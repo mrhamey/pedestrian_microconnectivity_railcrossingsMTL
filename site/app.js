@@ -177,7 +177,7 @@ fetch('data/places.geojson')
                         }
                     }).addTo(map);
 
-                    // Add 400m second (darker orange on top)
+                    // Add 400m second (red on top)
                     reachableLayer400 = L.geoJSON(filtered400, {
                         style: {
                             color: '#f05f5fff',     
