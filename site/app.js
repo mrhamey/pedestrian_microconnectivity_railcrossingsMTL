@@ -97,7 +97,7 @@ fetch('data/reseauvert.geojson')
     reseauVertGreenLayer = L.geoJSON(reseauVertData, {
       style: {
         color: "green",
-        weight: 4,
+        weight: 5,
         dashArray: "5,5"   // 
       }
     }).addTo(map);
@@ -199,7 +199,7 @@ fetch('data/places.geojson')
                     reachableLayer400 = L.geoJSON(filtered400, {
                         style: {
                             color: '#f05f5fff',     
-                            weight: 4,
+                            weight: 5,
                             opacity: 1.0
                         }
                     }).addTo(map);
@@ -214,7 +214,7 @@ fetch('data/places.geojson')
                     reseauVertGreenLayer = L.geoJSON(reseauVertData, {
                         style: {
                             color: "green",
-                            weight: 4,
+                            weight: 5,
                             dashArray: "5,5"
                         }
                     }).addTo(map);
