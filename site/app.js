@@ -1,6 +1,6 @@
 
 const map = L.map('map', {
-    center: [45.528144, -73.606535],
+    center: [45.531031, -73.598428],
     zoom: 14,
     zoomControl: true,         // Enables the zoom +/- buttons
     dragging: true,            // Allows panning with mouse/touch
