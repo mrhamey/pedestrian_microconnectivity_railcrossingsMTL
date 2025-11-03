@@ -186,6 +186,18 @@ fetch('data/places.geojson')
                         }
                     }).addTo(map);
 
+                    // add back the Réseau Vert so it appears always 
+                    
+                    reseauVertLayer = L.geoJSON(data, {
+                          style: {
+                            color: "green",      // Main line color
+                            weight: 3,
+                            dashArray: "5,5",    // Makes it dashed
+                            dashOffset: "0"
+                        }
+                    }).addTo(map);
+                 
+
                     // Fit to the larger (800m) extent if available
                     if (filtered800.features.length > 0) {
                         map.fitBounds(reachableLayer800.getBounds());
