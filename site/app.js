@@ -106,7 +106,7 @@ fetch('data/reseauvert.geojson')
     reseauVertWhiteLayer = L.geoJSON(reseauVertData, {
       style: {
         color: "white",
-        weight: 4,
+        weight: 3,
         dashArray: "5,5",
         dashOffset: "5"     
       }
@@ -223,7 +223,7 @@ fetch('data/places.geojson')
                     reseauVertWhiteLayer = L.geoJSON(reseauVertData, {
                         style: {
                             color: "white",
-                            weight: 4,
+                            weight: 3,
                             dashArray: "5,5",
                             dashOffset: "5"
                         }
