@@ -55,7 +55,7 @@ fetch('data/places.geojson')
                         color = '#62b955ff';
                         break;
                     case 'Informal_Crossing':
-                        color = '#82ee71ff';
+                        color = '#C4DEA0';
                         break;
                 }
 
@@ -146,7 +146,7 @@ fetch('data/places.geojson')
                 switch (feature.properties.category) {
                     case 'Under_Construction': color = '#f7f793'; break;
                     case 'Formal_Crossing': color = '#62b955ff'; break;
-                    case 'Informal_Crossing': color = '#82ee71ff'; break;
+                    case 'Informal_Crossing': color = '#C4DEA0'; break;
                 }
                 return L.circleMarker(latlng, {
                     radius: 10,
