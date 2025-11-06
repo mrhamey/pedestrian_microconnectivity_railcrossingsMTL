@@ -52,16 +52,16 @@ fetch('data/places.geojson')
                         color = '#f7f793';
                         break;
                     case 'Formal_Crossing':
-                        color = '#62b955ff';
+                        color = '#446AA2';
                         break;
                     case 'Informal_Crossing':
-                        color = '#C4DEA0';
+                        color = '#578DDE';
                         break;
                 }
 
                 // Create and return the marker with the color based on category
                 return L.circleMarker(latlng, {
-                    radius: 10,  // Adjust size of the marker
+                    radius: 8,  // Adjust size of the marker
                     fillColor: color,
                     color: 'black',  // Border color
                     weight: 2,     // Border width
@@ -145,11 +145,11 @@ fetch('data/places.geojson')
                 let color;
                 switch (feature.properties.category) {
                     case 'Under_Construction': color = '#f7f793'; break;
-                    case 'Formal_Crossing': color = '#62b955ff'; break;
-                    case 'Informal_Crossing': color = '#C4DEA0'; break;
+                    case 'Formal_Crossing': color = '#446AA2'; break;
+                    case 'Informal_Crossing': color = '#578DDE'; break;
                 }
                 return L.circleMarker(latlng, {
-                    radius: 10,
+                    radius: 8,
                     fillColor: color,
                     color: 'black',
                     weight: 2,
@@ -186,19 +186,19 @@ fetch('data/places.geojson')
                         features: reachable800.features.filter(f => f.properties.crossing_name === name)
                     };
 
-                    // Add 800m first (pink)
+                    // Add 800m first (light green)
                     reachableLayer800 = L.geoJSON(filtered800, {
                         style: {
-                            color: '#ec9696ff',     // light pink
+                            color: '#C4DEA0',   
                             weight: 3,
                             opacity: 1.0
                         }
                     }).addTo(map);
 
-                    // Add 400m second (red on top)
+                    // Add 400m second (darker green)
                     reachableLayer400 = L.geoJSON(filtered400, {
                         style: {
-                            color: '#f05f5fff',     
+                            color: '#62b955ff',     
                             weight: 5,
                             opacity: 1.0
                         }
