@@ -158,6 +158,10 @@ fetch('data/places.geojson')
                     pane: 'markerPane'
                 });
             },
+
+let reachableLayer400, reachableLayer800;
+let reachableLayer400Outline, reachableLayer800Outline;
+        
             onEachFeature: function (feature, layer) {
                 const name = feature.properties.name;
                 const desc = feature.properties.description;
