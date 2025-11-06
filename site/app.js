@@ -119,6 +119,8 @@ let reachable400 = null;
 let reachable800 = null;
 let reachableLayer400 = null;
 let reachableLayer800 = null;
+let reachableLayer400Outline = null;
+let reachableLayer800Outline = null;
 
 // Load 400m file
 fetch('data/reachable_lines_400m.geojson')
@@ -136,8 +138,7 @@ fetch('data/reachable_lines_800m.geojson')
         console.log("✅ 800m reachable lines loaded:", reachable800.features.length);
     });
 
-let reachableLayer400, reachableLayer800;
-let reachableLayer400Outline, reachableLayer800Outline;
+
 
 // --- Click interaction on crossings  ---
 fetch('data/places.geojson')
