@@ -37,19 +37,19 @@
   border: 1px solid black; 
 }
 
-/* Orange inner walkshed line */
+/* Orange 400m walkshed line */
 .legend li span.innerwalkshed {
   width: 20px;
   height: 4px;
-  background-color: #f05f5fff;
+  background-color: #62b955ff;
   opacity: 1;
 }
 
-/* Light outer walkshed line */
+/* Light 800m walkshed line */
 .legend li span.outerwalkshed {
   width: 20px;
   height: 4px;
-  background-color: #ec9696ff;
+  background-color: #C4DEA0;
   opacity: 1;
 }
 
