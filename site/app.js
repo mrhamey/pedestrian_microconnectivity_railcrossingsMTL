@@ -136,7 +136,7 @@ fetch('data/reachable_lines_800m.geojson')
         console.log("✅ 800m reachable lines loaded:", reachable800.features.length);
     });
 
-// --- Click interaction on crossings (same as your code, modified slightly) ---
+// --- Click interaction on crossings  ---
 fetch('data/places.geojson')
     .then(r => r.json())
     .then(crossings => {
@@ -175,6 +175,8 @@ fetch('data/places.geojson')
                     // Remove previous layers
                     if (reachableLayer400) map.removeLayer(reachableLayer400);
                     if (reachableLayer800) map.removeLayer(reachableLayer800);
+                    if (reachableLayer400Outline) map.removeLayer(reachableLayer400Outline)
+                    if (reachableLayer800Outline) map.removeLayer(reachableLayer800Outline)
 
                     // Filter 400m & 800m features for this crossing
                     const filtered400 = {
@@ -185,11 +187,19 @@ fetch('data/places.geojson')
                         ...reachable800,
                         features: reachable800.features.filter(f => f.properties.crossing_name === name)
                     };
-
+                    // 800m OUTLINE (dark grey underlay)
+                    reachableLayer800Outline = L.geoJSON(filtered800, {
+                        style: {
+                            color: '#555555',   // dark grey outline
+                            weight: 6,          // 1px bigger than fill line
+                            opacity: 1.0
+                    }
+                    }).addTo(map);
+                    
                     // 800m MAIN LINE (light green on top)
                     reachableLayer800 = L.geoJSON(filtered800, {
                         style: {
-                            color: '#C4DEA0',   // your light green
+                            color: '#C4DEA0',   //  light green
                             weight: 3,
                             opacity: 1.0
                     }
@@ -197,7 +207,7 @@ fetch('data/places.geojson')
 
 
                     // 400m OUTLINE (dark grey underlay)
-                    L.geoJSON(filtered400, {
+                     reachableLayer400Outline = L.geoJSON(filtered400, {
                         style: {
                             color: '#555555',   // dark grey outline
                             weight: 6,          // 1px bigger than fill line
