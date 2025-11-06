@@ -186,22 +186,32 @@ fetch('data/places.geojson')
                         features: reachable800.features.filter(f => f.properties.crossing_name === name)
                     };
 
-                    // Add 800m first (light green)
+                    // 800m MAIN LINE (light green on top)
                     reachableLayer800 = L.geoJSON(filtered800, {
                         style: {
-                            color: '#C4DEA0',   
+                            color: '#C4DEA0',   // your light green
                             weight: 3,
                             opacity: 1.0
-                        }
+                    }
                     }).addTo(map);
 
-                    // Add 400m second (darker green)
+
+                    // 400m OUTLINE (dark grey underlay)
+                    L.geoJSON(filtered400, {
+                        style: {
+                            color: '#555555',   // dark grey outline
+                            weight: 6,          // 1px bigger than fill line
+                            opacity: 1.0
+                    }
+                    }).addTo(map);
+
+                    // 400m MAIN LINE (green on top)
                     reachableLayer400 = L.geoJSON(filtered400, {
                         style: {
-                            color: '#62b955ff',     
+                            color: '#62b955ff', // your darker green
                             weight: 5,
                             opacity: 1.0
-                        }
+                    }
                     }).addTo(map);
 
                     // --- Re-add the Réseau Vert so it stays visible above the walksheds ---
