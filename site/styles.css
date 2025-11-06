@@ -133,7 +133,7 @@ html, body {
 .bottom-section {
   display: flex;
   height: 50%;
-  background-color: #8CC1FF; /* Shows red background */
+  background-color: #5070A8; /* Shows blue background */
   padding: 1em;               /* Adds space around the white boxes */
   gap: 2em;                   /* Space between legend and info box */
   justify-content: space-between;
@@ -179,7 +179,7 @@ p {
 
 /* general background colour */ 
 body {
-  background-color: #8CC1FF;
+  background-color: #5070A8;
 }
 
 /* page title/h2 */ 
