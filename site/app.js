@@ -136,6 +136,9 @@ fetch('data/reachable_lines_800m.geojson')
         console.log("✅ 800m reachable lines loaded:", reachable800.features.length);
     });
 
+let reachableLayer400, reachableLayer800;
+let reachableLayer400Outline, reachableLayer800Outline;
+
 // --- Click interaction on crossings  ---
 fetch('data/places.geojson')
     .then(r => r.json())
@@ -159,8 +162,7 @@ fetch('data/places.geojson')
                 });
             },
 
-let reachableLayer400, reachableLayer800;
-let reachableLayer400Outline, reachableLayer800Outline;
+
         
             onEachFeature: function (feature, layer) {
                 const name = feature.properties.name;
