@@ -272,7 +272,7 @@ fetch('data/places.geojson')
 
 // --- Information box code ---
 document.addEventListener("DOMContentLoaded", function () {
-    // Your tab switching function
+    // tab switching function
     window.openTab = function(evt, tabId) {
         const pages = document.getElementsByClassName("tab-page");
         for (let i = 0; i < pages.length; i++) {
@@ -288,3 +288,4 @@ document.addEventListener("DOMContentLoaded", function () {
         evt.currentTarget.classList.add("active");
     };
 });
+
