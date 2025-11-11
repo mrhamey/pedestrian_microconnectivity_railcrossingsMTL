@@ -147,6 +147,7 @@ html, body {
   padding: 1em;
   background-color: #fafafa;
   border-right: 1px solid #ccc;
+  max-height: 250px;
 }
 
 /* Right column: Text / Info box */
@@ -284,5 +285,7 @@ body {
   width: 65%;
   min-width: 300px;
 }
+
+
 
 
